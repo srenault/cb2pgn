@@ -30,7 +30,7 @@
 #include "db_move_info_set.h"
 #include "db_engine_list.h"
 
-#include "m_list.h"
+#include "m_vector.h"
 
 namespace util { class ByteStream; }
 
@@ -68,7 +68,7 @@ public:
 
 private:
 
-	typedef mstl::list<MoveInfoSet> Table;
+	typedef mstl::vector<MoveInfoSet> Table;
 
 	Table			m_table;
 	EngineList	m_engines;

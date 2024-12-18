@@ -1,0 +1,940 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000ffffbd541320, pid=1, tid=0x0000ffffbc2001f0
+#
+# JRE version: OpenJDK Runtime Environment (8.0_412-b08) (build 1.8.0_412-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.412-b08 mixed mode linux-aarch64 compressed oops)
+# Problematic frame:
+# C  [libc.so.6+0x68320]  fread+0x20
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://forums.aws.amazon.com/
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000ffffb404c800):  JavaThread "main" [_thread_in_native, id=275, stack(0x0000ffffbc001000,0x0000ffffbc201000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000000
+
+Registers:
+R0=0x0000ffffbc1fe0c0
+R1=0x0000000000000001
+R2=0x000000000000001c
+R3=0x0000000000000000
+R4=0x0000000000000001
+R5=0x0000000000000000
+R6=0x0000ffffbc1fdfae
+R7=0x0000000000000000
+R8=0x0000000000000038
+R9=0x0000ffffbc2008e0
+R10=0x0000000000000000
+R11=0x0000000000000000
+R12=0x0000ffffbd659a88
+R13=0x000000000000270f
+R14=0x0000ffff95e29700
+R15=0x0000ffff95e17838
+R16=0x0000ffff95fa21b0
+R17=0x0000ffffbd541300
+R18=0x0000000000000563
+R19=0x000000000000001c
+R20=0x000000000000001c
+R21=0x0000ffffbc1fe0e0
+R22=0x0000ffffbc1fe078
+R23=0x0000ffffb4324490
+R24=0x0000ffff95ef4a28
+R25=0x0000ffffbc1fe0c0
+R26=0x0000ffffbc1fe380
+R27=0x0000ffffbc1ff328
+R28=0x0000ffff95fa4000
+R29=0x0000ffffbc1fdf60
+R30=0x0000ffff95e71f30
+
+Top of Stack: (sp=0x0000ffffbc1fdf60)
+0x0000ffffbc1fdf60:   0000ffffbc1fdfb0 0000ffff95e71f30
+0x0000ffffbc1fdf70:   0000ffffbc1fe0e0 0000ffffbc1fe678
+0x0000ffffbc1fdf80:   0000ffffbc1fe0e0 0000ffff95e72498
+0x0000ffffbc1fdf90:   0000ffffbc1fdfb0 0000ffff95ef4a28
+0x0000ffffbc1fdfa0:   0000000000000000 0000ffff00006272
+0x0000ffffbc1fdfb0:   0000ffffbc1fdfe0 0000ffff95ed467c
+0x0000ffffbc1fdfc0:   0000ffffbc1fe090 0000ffffbc1fe678
+0x0000ffffbc1fdfd0:   0000ffffbc1fe090 0000ffffbd556b30
+0x0000ffffbc1fdfe0:   0000ffffbc1fe150 0000ffff95ed9328
+0x0000ffffbc1fdff0:   0000ffffb4324490 0000ffffbc1fe380
+0x0000ffffbc1fe000:   0000ffffbc1fea60 0000ffffbc1fe190
+0x0000ffffbc1fe010:   0000ffffbc1fe1a8 0000ffff95ef4a28
+0x0000ffffbc1fe020:   0000000000000000 0000ffffbc1ff330
+0x0000ffffbc1fe030:   0000ffffbc1ff328 0000ffff95fa4000
+0x0000ffffbc1fe040:   0000ffffbc1fe658 0000ffffbc1fe090
+0x0000ffffbc1fe050:   0000ffffbc1fe1a8 0000000000000000
+0x0000ffffbc1fe060:   0000007c00000077 0000ffffbc1fe678
+0x0000ffffbc1fe070:   0000000000000038 0000000000000000
+0x0000ffffbc1fe080:   0000000000000000 0000ffff95f41f60
+0x0000ffffbc1fe090:   0000000000000008 0000000000000009
+0x0000ffffbc1fe0a0:   0000ffffb433e880 0000ffffb40008d0
+0x0000ffffbc1fe0b0:   0000ffffb4324490 0000ffffbc1fea60
+0x0000ffffbc1fe0c0:   7362632e74736574 0000000000000000
+0x0000ffffbc1fe0d0:   0000000000000000 ffffffffffffffff
+0x0000ffffbc1fe0e0:   0000ffff95fa1370 0000000000000000
+0x0000ffffbc1fe0f0:   0000000000000000 0000ffff95fa13c0
+0x0000ffffbc1fe100:   0000ffff95fa13f8 0000000000000000
+0x0000ffffbc1fe110:   0000000700000004 f00ff00f00000011
+0x0000ffffbc1fe120:   0000ffff95fa1428 0000000000000008
+0x0000ffffbc1fe130:   0000000000000009 0000ffffb433e8a0
+0x0000ffffbc1fe140:   0000000095000000 0000000000000000
+0x0000ffffbc1fe150:   0000ffffbc1fe1c0 0000ffff95e876dc 
+
+Instructions: (pc=0x0000ffffbd541320)
+0x0000ffffbd541300:   fd 7b bb a9 fd 03 00 91 f3 0b 00 f9 33 7c 02 9b
+0x0000ffffbd541310:   f8 1f 00 f9 93 05 00 b4 b9 23 00 f9 f9 03 00 aa
+0x0000ffffbd541320:   60 00 40 b9 b4 d7 01 a9 f4 03 03 aa b6 df 02 a9
+0x0000ffffbd541330:   f5 03 01 aa f6 03 02 aa 20 02 78 37 77 44 40 f9 
+
+Register to memory mapping:
+
+R0=0x0000ffffbc1fe0c0
+R1=0x0000000000000001
+R2=0x000000000000001c
+R3=0x0000000000000000
+R4=0x0000000000000001
+R5=0x0000000000000000
+R6=0x0000ffffbc1fdfae
+R7=0x0000000000000000
+R8=0x0000000000000038
+R9=0x0000ffffbc2008e0
+R10=0x0000000000000000
+R11=0x0000000000000000
+R12=0x0000ffffbd659a88
+R13=0x000000000000270f
+R14=0x0000ffff95e29700
+R15=0x0000ffff95e17838
+R16=0x0000ffff95fa21b0
+R17=0x0000ffffbd541300
+R18=0x0000000000000563
+R19=0x000000000000001c
+R20=0x000000000000001c
+R21=0x0000ffffbc1fe0e0
+R22=0x0000ffffbc1fe078
+R23=0x0000ffffb4324490
+R24=0x0000ffff95ef4a28
+R25=0x0000ffffbc1fe0c0
+R26=0x0000ffffbc1fe380
+R27=0x0000ffffbc1ff328
+R28=0x0000ffff95fa4000
+R29=0x0000ffffbc1fdf60
+R30=0x0000ffff95e71f30
+
+
+Stack: [0x0000ffffbc001000,0x0000ffffbc201000],  sp=0x0000ffffbc1fdf60,  free space=2035k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0x68320]  fread+0x20
+C  [libcb2pgn.so+0x5ff30]  mstl::istream::read(char*, unsigned long)+0x30
+C  [libcb2pgn.so+0xc267c]  db::cbh::Codec::readPlayerData(mstl::string const&, util::Progress&)+0xbc
+C  [libcb2pgn.so+0xc7328]  db::cbh::Codec::doOpen(mstl::string const&, mstl::string const&, util::Progress&)+0xe8
+C  [libcb2pgn.so+0x756dc]  db::Database::Database(mstl::string const&, mstl::string const&, db::Database::Mode, util::Progress&)+0xf8
+C  [libcb2pgn.so+0x5e184]  Java_org_chess_cb_Cbh2PgnTask_convertToPgn+0x364
+j  org.chess.cb.Cbh2PgnTask.convertToPgn(Ljava/lang/String;Ljava/lang/String;)I+0
+j  org.chess.cb.Cbh2PgnTask.main([Ljava/lang/String;)V+37
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x65d370]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0xe00
+V  [libjvm.so+0x6e0b1c]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*) [clone .isra.81] [clone .constprop.114]+0x1dc
+V  [libjvm.so+0x6e3200]  jni_CallStaticVoidMethod+0x150
+C  [libjli.so+0x379c]  JavaMain+0xb5c
+C  [libpthread.so.0+0x7230]  start_thread+0xb0
+C  [libc.so.6+0xdb7dc]  thread_start+0xc
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.chess.cb.Cbh2PgnTask.convertToPgn(Ljava/lang/String;Ljava/lang/String;)I+0
+j  org.chess.cb.Cbh2PgnTask.main([Ljava/lang/String;)V+37
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000ffffb413c800 JavaThread "Service Thread" daemon [_thread_blocked, id=294, stack(0x0000ffff94e00000,0x0000ffff95000000)]
+  0x0000ffffb4131800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=293, stack(0x0000ffff95001000,0x0000ffff95201000)]
+  0x0000ffffb412f000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=292, stack(0x0000ffff95401000,0x0000ffff95601000)]
+  0x0000ffffb412d000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=291, stack(0x0000ffff95801000,0x0000ffff95a01000)]
+  0x0000ffffb412a800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=290, stack(0x0000ffff95c01000,0x0000ffff95e01000)]
+  0x0000ffffb411a800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=289, stack(0x0000ffff96000000,0x0000ffff96200000)]
+  0x0000ffffb40f1800 JavaThread "Finalizer" daemon [_thread_blocked, id=288, stack(0x0000ffff96200000,0x0000ffff96400000)]
+  0x0000ffffb40ed000 JavaThread "Reference Handler" daemon [_thread_blocked, id=287, stack(0x0000ffff96400000,0x0000ffff96600000)]
+=>0x0000ffffb404c800 JavaThread "main" [_thread_in_native, id=275, stack(0x0000ffffbc001000,0x0000ffffbc201000)]
+
+Other Threads:
+  0x0000ffffb40e3000 VMThread [stack: 0x0000ffff96601000,0x0000ffff96801000] [id=286]
+  0x0000ffffb4141800 WatcherThread [stack: 0x0000ffff94a01000,0x0000ffff94c01000] [id=295]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000085800000, size: 1960 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 36864K, used 1269K [0x00000000d7300000, 0x00000000d9c00000, 0x0000000100000000)
+  eden space 31744K, 4% used [0x00000000d7300000,0x00000000d743d728,0x00000000d9200000)
+  from space 5120K, 0% used [0x00000000d9700000,0x00000000d9700000,0x00000000d9c00000)
+  to   space 5120K, 0% used [0x00000000d9200000,0x00000000d9200000,0x00000000d9700000)
+ ParOldGen       total 84992K, used 0K [0x0000000085800000, 0x000000008ab00000, 0x00000000d7300000)
+  object space 84992K, 0% used [0x0000000085800000,0x0000000085800000,0x000000008ab00000)
+ Metaspace       used 2963K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 279K, capacity 386K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x0000ffffbba00000,0x0000ffffbbdd5000] byte_map_base: 0x0000ffffbb5d4000
+
+Marking Bits: (ParMarkBitMap*) 0x0000ffffbd4b2438
+ Begin Bits: [0x0000ffffa0200000, 0x0000ffffa20a0000)
+ End Bits:   [0x0000ffffa20a0000, 0x0000ffffa3f40000)
+
+Polling page: 0x0000ffffbd740000
+
+CodeCache: size=131072Kb used=1038Kb max_used=1038Kb free=130033Kb
+ bounds [0x0000ffffac000000, 0x0000ffffac270000, 0x0000ffffb4000000]
+ total_blobs=257 nmethods=12 adapters=161
+ compilation: enabled
+
+Compilation events (22 events):
+Event: 0.024 Thread 0x0000ffffb4131800    1       3       java.lang.String::hashCode (55 bytes)
+Event: 0.024 Thread 0x0000ffffb4131800 nmethod 1 0x0000ffffac0f2f50 code [0x0000ffffac0f30c0, 0x0000ffffac0f32d0]
+Event: 0.025 Thread 0x0000ffffb4131800    2       3       java.lang.Object::<init> (1 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 2 0x0000ffffac0f48d0 code [0x0000ffffac0f4a40, 0x0000ffffac0f4b50]
+Event: 0.025 Thread 0x0000ffffb4131800    5       3       java.lang.String::indexOf (70 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 5 0x0000ffffac0f3f10 code [0x0000ffffac0f40c0, 0x0000ffffac0f43e8]
+Event: 0.025 Thread 0x0000ffffb4131800    3       3       java.lang.String::charAt (29 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 3 0x0000ffffac0f79d0 code [0x0000ffffac0f7b40, 0x0000ffffac0f7ce8]
+Event: 0.025 Thread 0x0000ffffb4131800    4       3       java.lang.String::length (6 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 4 0x0000ffffac0f7690 code [0x0000ffffac0f7800, 0x0000ffffac0f7910]
+Event: 0.025 Thread 0x0000ffffb4131800    7       3       java.lang.Math::min (11 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 7 0x0000ffffac0f7390 code [0x0000ffffac0f7500, 0x0000ffffac0f7610]
+Event: 0.025 Thread 0x0000ffffb4131800    8       1       java.lang.Object::<init> (1 bytes)
+Event: 0.025 Thread 0x0000ffffb4131800 nmethod 8 0x0000ffffac0f7110 code [0x0000ffffac0f7240, 0x0000ffffac0f7310]
+Event: 0.026 Thread 0x0000ffffb4131800    9       3       java.lang.String::equals (81 bytes)
+Event: 0.026 Thread 0x0000ffffb4131800 nmethod 9 0x0000ffffac0ffb90 code [0x0000ffffac0ffd40, 0x0000ffffac100250]
+Event: 0.027 Thread 0x0000ffffb4131800   10       1       java.lang.ref.Reference::get (5 bytes)
+Event: 0.027 Thread 0x0000ffffb4131800 nmethod 10 0x0000ffffac101610 code [0x0000ffffac101740, 0x0000ffffac1017d0]
+Event: 0.028 Thread 0x0000ffffb4131800   11       1       java.lang.ThreadLocal::access$400 (5 bytes)
+Event: 0.028 Thread 0x0000ffffb4131800 nmethod 11 0x0000ffffac102610 code [0x0000ffffac102740, 0x0000ffffac1027d0]
+Event: 0.028 Thread 0x0000ffffb4131800   12       3       java.util.Arrays::copyOfRange (63 bytes)
+Event: 0.029 Thread 0x0000ffffb4131800 nmethod 12 0x0000ffffac102850 code [0x0000ffffac102ac0, 0x0000ffffac1035b8]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (3 events):
+Event: 0.013 Thread 0x0000ffffb404c800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000d7307cd8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aa
+Event: 0.013 Thread 0x0000ffffb404c800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000d7307fc0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/shenandoah8u
+Event: 0.038 Thread 0x0000ffffb404c800 Exception <a 'java/lang/NoSuchMethodError': setPgnFileName> (0x00000000d7361308) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/shenandoah8u412-b08/hotspot/src/share/vm/prims/jni.cpp, line 1586]
+
+Events (250 events):
+Event: 0.018 loading class java/nio/HeapCharBuffer
+Event: 0.018 loading class java/nio/HeapCharBuffer done
+Event: 0.018 loading class java/lang/reflect/Array
+Event: 0.018 loading class java/lang/reflect/Array done
+Event: 0.018 loading class java/util/HashMap$TreeNode
+Event: 0.018 loading class java/util/HashMap$TreeNode done
+Event: 0.019 loading class java/io/FileInputStream$1
+Event: 0.019 loading class java/io/FileInputStream$1 done
+Event: 0.019 loading class sun/net/www/ParseUtil
+Event: 0.019 loading class sun/net/www/ParseUtil done
+Event: 0.019 loading class java/util/BitSet
+Event: 0.019 loading class java/util/BitSet done
+Event: 0.019 loading class java/util/Locale
+Event: 0.019 loading class java/util/Locale done
+Event: 0.019 loading class java/util/Locale$Cache
+Event: 0.019 loading class sun/util/locale/LocaleObjectCache
+Event: 0.019 loading class sun/util/locale/LocaleObjectCache done
+Event: 0.019 loading class java/util/Locale$Cache done
+Event: 0.019 loading class java/util/concurrent/ConcurrentHashMap
+Event: 0.019 loading class java/util/concurrent/ConcurrentMap
+Event: 0.019 loading class java/util/concurrent/ConcurrentMap done
+Event: 0.019 loading class java/util/concurrent/ConcurrentHashMap done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$Segment
+Event: 0.020 loading class java/util/concurrent/locks/ReentrantLock
+Event: 0.020 loading class java/util/concurrent/locks/Lock
+Event: 0.020 loading class java/util/concurrent/locks/Lock done
+Event: 0.020 loading class java/util/concurrent/locks/ReentrantLock done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$Segment done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$Node
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$Node done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$CounterCell
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$CounterCell done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$KeySetView
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$CollectionView
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$CollectionView done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$KeySetView done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$ValuesView
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$ValuesView done
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$EntrySetView
+Event: 0.020 loading class java/util/concurrent/ConcurrentHashMap$EntrySetView done
+Event: 0.020 loading class sun/util/locale/BaseLocale
+Event: 0.020 loading class sun/util/locale/BaseLocale done
+Event: 0.020 loading class sun/util/locale/BaseLocale$Cache
+Event: 0.020 loading class sun/util/locale/BaseLocale$Cache done
+Event: 0.020 loading class sun/util/locale/BaseLocale$Key
+Event: 0.020 loading class sun/util/locale/BaseLocale$Key done
+Event: 0.020 loading class sun/util/locale/LocaleObjectCache$CacheEntry
+Event: 0.020 loading class sun/util/locale/LocaleObjectCache$CacheEntry done
+Event: 0.020 loading class java/util/Locale$LocaleKey
+Event: 0.020 loading class java/util/Locale$LocaleKey done
+Event: 0.020 loading class sun/util/locale/LocaleUtils
+Event: 0.020 loading class sun/util/locale/LocaleUtils done
+Event: 0.020 loading class java/lang/CharacterData
+Event: 0.020 loading class java/lang/CharacterData done
+Event: 0.020 loading class java/lang/CharacterDataLatin1
+Event: 0.020 loading class java/lang/CharacterDataLatin1 done
+Event: 0.020 loading class java/net/Parts
+Event: 0.020 loading class java/net/Parts done
+Event: 0.020 loading class sun/net/www/protocol/file/Handler
+Event: 0.020 loading class java/net/URLStreamHandler
+Event: 0.021 loading class java/net/URLStreamHandler done
+Event: 0.021 loading class sun/net/www/protocol/file/Handler done
+Event: 0.021 loading class java/lang/Class$1
+Event: 0.021 loading class java/lang/Class$1 done
+Event: 0.022 loading class sun/reflect/ReflectionFactory$1
+Event: 0.022 loading class sun/reflect/ReflectionFactory$1 done
+Event: 0.022 loading class sun/reflect/NativeConstructorAccessorImpl
+Event: 0.022 loading class sun/reflect/NativeConstructorAccessorImpl done
+Event: 0.022 loading class sun/reflect/DelegatingConstructorAccessorImpl
+Event: 0.022 loading class sun/reflect/DelegatingConstructorAccessorImpl done
+Event: 0.022 loading class sun/net/util/IPAddressUtil
+Event: 0.022 loading class sun/net/util/IPAddressUtil done
+Event: 0.022 loading class java/security/ProtectionDomain$JavaSecurityAccessImpl
+Event: 0.022 loading class sun/misc/JavaSecurityAccess
+Event: 0.022 loading class sun/misc/JavaSecurityAccess done
+Event: 0.022 loading class java/security/ProtectionDomain$JavaSecurityAccessImpl done
+Event: 0.022 loading class java/security/ProtectionDomain$2
+Event: 0.022 loading class sun/misc/JavaSecurityProtectionDomainAccess
+Event: 0.022 loading class sun/misc/JavaSecurityProtectionDomainAccess done
+Event: 0.022 loading class java/security/ProtectionDomain$2 done
+Event: 0.022 loading class java/security/ProtectionDomain$Key
+Event: 0.022 loading class java/security/ProtectionDomain$Key done
+Event: 0.022 loading class java/security/Principal
+Event: 0.022 loading class java/security/Principal done
+Event: 0.022 loading class sun/misc/URLClassPath
+Event: 0.022 loading class sun/misc/URLClassPath done
+Event: 0.022 loading class sun/net/www/protocol/jar/Handler
+Event: 0.022 loading class sun/net/www/protocol/jar/Handler done
+Event: 0.022 loading class sun/misc/Launcher$AppClassLoader$1
+Event: 0.022 loading class sun/misc/Launcher$AppClassLoader$1 done
+Event: 0.022 loading class java/lang/SystemClassLoaderAction
+Event: 0.022 loading class java/lang/SystemClassLoaderAction done
+Event: 0.023 Thread 0x0000ffffb411a800 Thread added: 0x0000ffffb411a800
+Event: 0.023 loading class jdk/jfr/internal/EventWriter
+Event: 0.023 loading class jdk/jfr/internal/EventWriter done
+Event: 0.023 Thread 0x0000ffffb412a800 Thread added: 0x0000ffffb412a800
+Event: 0.023 Thread 0x0000ffffb412d000 Thread added: 0x0000ffffb412d000
+Event: 0.023 Thread 0x0000ffffb412f000 Thread added: 0x0000ffffb412f000
+Event: 0.023 Thread 0x0000ffffb4131800 Thread added: 0x0000ffffb4131800
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl done
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$1
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$1 done
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$2
+Event: 0.023 loading class java/util/function/Function
+Event: 0.023 loading class java/util/function/Function done
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$2 done
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$3
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$3 done
+Event: 0.023 loading class java/lang/invoke/MethodHandleImpl$4
+Event: 0.023 loading class java/lang/ClassValue
+Event: 0.024 loading class java/lang/ClassValue done
+Event: 0.024 loading class java/lang/invoke/MethodHandleImpl$4 done
+Event: 0.024 loading class java/lang/ClassValue$Entry
+Event: 0.024 loading class java/lang/ClassValue$Entry done
+Event: 0.024 loading class java/lang/ClassValue$Identity
+Event: 0.024 loading class java/lang/ClassValue$Identity done
+Event: 0.024 loading class java/lang/ClassValue$Version
+Event: 0.024 loading class java/lang/ClassValue$Version done
+Event: 0.024 loading class java/lang/invoke/MemberName$Factory
+Event: 0.024 loading class java/lang/invoke/MemberName$Factory done
+Event: 0.024 loading class java/lang/invoke/MethodHandleStatics
+Event: 0.024 loading class java/lang/invoke/MethodHandleStatics done
+Event: 0.024 loading class java/lang/invoke/MethodHandleStatics$1
+Event: 0.024 loading class java/lang/invoke/MethodHandleStatics$1 done
+Event: 0.024 Thread 0x0000ffffb413c800 Thread added: 0x0000ffffb413c800
+Event: 0.024 loading class sun/misc/PostVMInitHook
+Event: 0.024 loading class sun/misc/PostVMInitHook done
+Event: 0.024 loading class sun/launcher/LauncherHelper
+Event: 0.024 loading class sun/launcher/LauncherHelper done
+Event: 0.024 loading class org/chess/cb/Cbh2PgnTask
+Event: 0.024 loading class org/chess/cb/Cbh2PgnTask done
+Event: 0.024 loading class java/net/URLClassLoader$1
+Event: 0.024 loading class java/net/URLClassLoader$1 done
+Event: 0.024 loading class sun/net/util/URLUtil
+Event: 0.024 loading class sun/net/util/URLUtil done
+Event: 0.024 loading class sun/misc/URLClassPath$3
+Event: 0.024 loading class sun/misc/URLClassPath$3 done
+Event: 0.024 loading class sun/misc/URLClassPath$JarLoader
+Event: 0.024 loading class sun/misc/URLClassPath$Loader
+Event: 0.024 loading class sun/misc/URLClassPath$Loader done
+Event: 0.024 loading class sun/misc/URLClassPath$JarLoader done
+Event: 0.024 loading class java/util/zip/ZipFile
+Event: 0.024 loading class java/util/zip/ZipConstants
+Event: 0.024 loading class java/util/zip/ZipConstants done
+Event: 0.025 loading class java/util/zip/ZipFile done
+Event: 0.025 loading class java/util/zip/ZipFile$1
+Event: 0.025 loading class sun/misc/JavaUtilZipFileAccess
+Event: 0.025 loading class sun/misc/JavaUtilZipFileAccess done
+Event: 0.025 loading class java/util/zip/ZipFile$1 done
+Event: 0.025 loading class sun/misc/URLClassPath$FileLoader
+Event: 0.025 loading class sun/misc/URLClassPath$FileLoader done
+Event: 0.025 loading class sun/misc/URLClassPath$FileLoader$1
+Event: 0.025 loading class sun/misc/Resource
+Event: 0.025 loading class sun/misc/Resource done
+Event: 0.025 loading class sun/misc/URLClassPath$FileLoader$1 done
+Event: 0.025 loading class java/lang/Package
+Event: 0.025 loading class java/lang/Package done
+Event: 0.026 loading class sun/nio/ByteBuffered
+Event: 0.026 loading class sun/nio/ByteBuffered done
+Event: 0.026 loading class sun/misc/PerfCounter
+Event: 0.026 loading class sun/misc/PerfCounter done
+Event: 0.026 loading class sun/misc/Perf$GetPerfAction
+Event: 0.026 loading class sun/misc/Perf$GetPerfAction done
+Event: 0.026 loading class sun/misc/Perf
+Event: 0.026 loading class sun/misc/Perf done
+Event: 0.026 loading class sun/misc/PerfCounter$CoreCounters
+Event: 0.026 loading class sun/misc/PerfCounter$CoreCounters done
+Event: 0.026 loading class sun/nio/ch/DirectBuffer
+Event: 0.026 loading class sun/nio/ch/DirectBuffer done
+Event: 0.026 loading class java/nio/DirectByteBuffer
+Event: 0.026 loading class java/nio/MappedByteBuffer
+Event: 0.026 loading class java/nio/MappedByteBuffer done
+Event: 0.026 loading class java/nio/DirectByteBuffer done
+Event: 0.026 loading class java/nio/DirectLongBufferU
+Event: 0.026 loading class java/nio/LongBuffer
+Event: 0.026 loading class java/nio/LongBuffer done
+Event: 0.026 loading class java/nio/DirectLongBufferU done
+Event: 0.026 loading class java/security/Permissions
+Event: 0.026 loading class java/security/PermissionCollection
+Event: 0.026 loading class java/security/PermissionCollection done
+Event: 0.026 loading class java/security/Permissions done
+Event: 0.026 loading class sun/net/www/protocol/file/FileURLConnection
+Event: 0.026 loading class sun/net/www/URLConnection
+Event: 0.026 loading class java/net/URLConnection
+Event: 0.026 loading class java/net/URLConnection done
+Event: 0.026 loading class sun/net/www/URLConnection done
+Event: 0.026 loading class sun/net/www/protocol/file/FileURLConnection done
+Event: 0.027 loading class sun/net/www/MessageHeader
+Event: 0.027 loading class sun/net/www/MessageHeader done
+Event: 0.027 loading class java/io/FilePermission
+Event: 0.027 loading class java/io/FilePermission done
+Event: 0.027 loading class sun/nio/fs/DefaultFileSystemProvider
+Event: 0.027 loading class sun/nio/fs/DefaultFileSystemProvider done
+Event: 0.027 loading class sun/nio/fs/LinuxFileSystemProvider
+Event: 0.027 loading class sun/nio/fs/UnixFileSystemProvider
+Event: 0.027 loading class sun/nio/fs/AbstractFileSystemProvider
+Event: 0.027 loading class java/nio/file/spi/FileSystemProvider
+Event: 0.027 loading class java/nio/file/spi/FileSystemProvider done
+Event: 0.027 loading class sun/nio/fs/AbstractFileSystemProvider done
+Event: 0.027 loading class sun/nio/fs/UnixFileSystemProvider done
+Event: 0.027 loading class sun/nio/fs/LinuxFileSystemProvider done
+Event: 0.027 loading class sun/nio/fs/LinuxFileSystem
+Event: 0.027 loading class sun/nio/fs/UnixFileSystem
+Event: 0.027 loading class java/nio/file/FileSystem
+Event: 0.027 loading class java/nio/file/FileSystem done
+Event: 0.027 loading class sun/nio/fs/UnixFileSystem done
+Event: 0.027 loading class sun/nio/fs/LinuxFileSystem done
+Event: 0.027 loading class sun/nio/fs/UnixPath
+Event: 0.027 loading class sun/nio/fs/AbstractPath
+Event: 0.027 loading class sun/nio/fs/AbstractPath done
+Event: 0.027 loading class sun/nio/fs/UnixPath done
+Event: 0.027 loading class sun/nio/fs/Util
+Event: 0.027 loading class sun/nio/fs/Util done
+Event: 0.027 loading class sun/nio/fs/UnixNativeDispatcher
+Event: 0.027 loading class sun/nio/fs/UnixNativeDispatcher done
+Event: 0.027 loading class sun/nio/fs/UnixNativeDispatcher$1
+Event: 0.027 loading class sun/nio/fs/UnixNativeDispatcher$1 done
+Event: 0.027 loading class sun/nio/fs/UnixFileAttributes
+Event: 0.027 loading class java/nio/file/attribute/PosixFileAttributes
+Event: 0.027 loading class java/nio/file/attribute/BasicFileAttributes
+Event: 0.027 loading class java/nio/file/attribute/BasicFileAttributes done
+Event: 0.027 loading class java/nio/file/attribute/PosixFileAttributes done
+Event: 0.027 loading class sun/nio/fs/UnixFileAttributes done
+Event: 0.027 loading class sun/nio/fs/UnixFileStoreAttributes
+Event: 0.027 loading class sun/nio/fs/UnixFileStoreAttributes done
+Event: 0.027 loading class sun/nio/fs/UnixMountEntry
+Event: 0.027 loading class sun/nio/fs/UnixMountEntry done
+Event: 0.028 loading class java/net/URI
+Event: 0.028 loading class java/net/URI done
+Event: 0.028 loading class java/net/URI$Parser
+Event: 0.028 loading class java/net/URI$Parser done
+Event: 0.028 loading class java/io/FilePermission$1
+Event: 0.028 loading class java/io/FilePermission$1 done
+Event: 0.028 loading class java/io/FilePermissionCollection
+Event: 0.028 loading class java/io/FilePermissionCollection done
+Event: 0.028 loading class java/security/AllPermission
+Event: 0.028 loading class java/security/AllPermission done
+Event: 0.028 loading class java/security/UnresolvedPermission
+Event: 0.028 loading class java/security/UnresolvedPermission done
+Event: 0.028 loading class java/security/BasicPermissionCollection
+Event: 0.028 loading class java/security/BasicPermissionCollection done
+Event: 0.028 loading class sun/launcher/LauncherHelper$FXHelper
+Event: 0.028 loading class sun/launcher/LauncherHelper$FXHelper done
+Event: 0.028 loading class java/lang/Class$MethodArray
+Event: 0.028 loading class java/lang/Class$MethodArray done
+Event: 0.028 loading class java/lang/Void
+Event: 0.028 loading class java/lang/Void done
+Event: 0.028 loading class java/lang/ClassLoaderHelper
+Event: 0.028 loading class java/lang/ClassLoaderHelper done
+
+
+Dynamic libraries:
+85800000-8ab00000 rw-p 00000000 00:00 0 
+8ab00000-d7300000 ---p 00000000 00:00 0 
+d7300000-d9c00000 rw-p 00000000 00:00 0 
+d9c00000-100000000 ---p 00000000 00:00 0 
+100000000-100080000 rw-p 00000000 00:00 0 
+100080000-140000000 ---p 00000000 00:00 0 
+aaaacf360000-aaaacf361000 r-xp 00000000 00:3e 367489                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/bin/java
+aaaacf37f000-aaaacf380000 r--p 0000f000 00:3e 367489                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/bin/java
+aaaacf380000-aaaacf381000 rw-p 00010000 00:3e 367489                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/bin/java
+aaaaf63ec000-aaaaf6422000 rw-p 00000000 00:00 0                          [heap]
+ffff30000000-ffff30021000 rw-p 00000000 00:00 0 
+ffff30021000-ffff34000000 ---p 00000000 00:00 0 
+ffff38000000-ffff38021000 rw-p 00000000 00:00 0 
+ffff38021000-ffff3c000000 ---p 00000000 00:00 0 
+ffff3c000000-ffff3c021000 rw-p 00000000 00:00 0 
+ffff3c021000-ffff40000000 ---p 00000000 00:00 0 
+ffff44000000-ffff44021000 rw-p 00000000 00:00 0 
+ffff44021000-ffff48000000 ---p 00000000 00:00 0 
+ffff48000000-ffff48021000 rw-p 00000000 00:00 0 
+ffff48021000-ffff4c000000 ---p 00000000 00:00 0 
+ffff50000000-ffff50076000 rw-p 00000000 00:00 0 
+ffff50076000-ffff54000000 ---p 00000000 00:00 0 
+ffff54000000-ffff54021000 rw-p 00000000 00:00 0 
+ffff54021000-ffff58000000 ---p 00000000 00:00 0 
+ffff5c000000-ffff5c021000 rw-p 00000000 00:00 0 
+ffff5c021000-ffff60000000 ---p 00000000 00:00 0 
+ffff60000000-ffff60021000 rw-p 00000000 00:00 0 
+ffff60021000-ffff64000000 ---p 00000000 00:00 0 
+ffff68000000-ffff68021000 rw-p 00000000 00:00 0 
+ffff68021000-ffff6c000000 ---p 00000000 00:00 0 
+ffff6c000000-ffff6c021000 rw-p 00000000 00:00 0 
+ffff6c021000-ffff70000000 ---p 00000000 00:00 0 
+ffff74000000-ffff74021000 rw-p 00000000 00:00 0 
+ffff74021000-ffff78000000 ---p 00000000 00:00 0 
+ffff7c000000-ffff7c021000 rw-p 00000000 00:00 0 
+ffff7c021000-ffff80000000 ---p 00000000 00:00 0 
+ffff84000000-ffff84021000 rw-p 00000000 00:00 0 
+ffff84021000-ffff88000000 ---p 00000000 00:00 0 
+ffff8b400000-ffff8b601000 rw-p 00000000 00:00 0 
+ffff8b800000-ffff8ba01000 rw-p 00000000 00:00 0 
+ffff8bc00000-ffff8be01000 rw-p 00000000 00:00 0 
+ffff8c000000-ffff8c021000 rw-p 00000000 00:00 0 
+ffff8c021000-ffff90000000 ---p 00000000 00:00 0 
+ffff90000000-ffff90021000 rw-p 00000000 00:00 0 
+ffff90021000-ffff94000000 ---p 00000000 00:00 0 
+ffff94400000-ffff94801000 rw-p 00000000 00:00 0 
+ffff94a00000-ffff94a01000 ---p 00000000 00:00 0 
+ffff94a01000-ffff94c01000 rw-p 00000000 00:00 0 
+ffff94e00000-ffff94e03000 ---p 00000000 00:00 0 
+ffff94e03000-ffff95000000 rw-p 00000000 00:00 0 
+ffff95000000-ffff95001000 ---p 00000000 00:00 0 
+ffff95001000-ffff95004000 ---p 00000000 00:00 0 
+ffff95004000-ffff95201000 rw-p 00000000 00:00 0 
+ffff95400000-ffff95401000 ---p 00000000 00:00 0 
+ffff95401000-ffff95404000 ---p 00000000 00:00 0 
+ffff95404000-ffff95601000 rw-p 00000000 00:00 0 
+ffff95800000-ffff95801000 ---p 00000000 00:00 0 
+ffff95801000-ffff95804000 ---p 00000000 00:00 0 
+ffff95804000-ffff95a01000 rw-p 00000000 00:00 0 
+ffff95a65000-ffff95c00000 rw-p 00000000 00:00 0 
+ffff95c00000-ffff95c01000 ---p 00000000 00:00 0 
+ffff95c01000-ffff95c04000 ---p 00000000 00:00 0 
+ffff95c04000-ffff95e01000 rw-p 00000000 00:00 0 
+ffff95e12000-ffff95f85000 r-xp 00000000 00:27 20                         /libs/libcb2pgn.so
+ffff95f85000-ffff95f9c000 ---p 00173000 00:27 20                         /libs/libcb2pgn.so
+ffff95f9c000-ffff95fa2000 r--p 0017a000 00:27 20                         /libs/libcb2pgn.so
+ffff95fa2000-ffff95fa5000 rw-p 00180000 00:27 20                         /libs/libcb2pgn.so
+ffff95fa5000-ffff96000000 rw-p 00000000 00:00 0 
+ffff96000000-ffff96003000 ---p 00000000 00:00 0 
+ffff96003000-ffff96200000 rw-p 00000000 00:00 0 
+ffff96200000-ffff96203000 ---p 00000000 00:00 0 
+ffff96203000-ffff96400000 rw-p 00000000 00:00 0 
+ffff96400000-ffff96403000 ---p 00000000 00:00 0 
+ffff96403000-ffff96600000 rw-p 00000000 00:00 0 
+ffff96600000-ffff96601000 ---p 00000000 00:00 0 
+ffff96601000-ffff96801000 rw-p 00000000 00:00 0 
+ffff968a3000-ffff98000000 rw-p 00000000 00:00 0 
+ffff98000000-ffff98021000 rw-p 00000000 00:00 0 
+ffff98021000-ffff9c000000 ---p 00000000 00:00 0 
+ffff9c000000-ffff9c021000 rw-p 00000000 00:00 0 
+ffff9c021000-ffffa0000000 ---p 00000000 00:00 0 
+ffffa00ff000-ffffa3f40000 rw-p 00000000 00:00 0 
+ffffa4000000-ffffa4021000 rw-p 00000000 00:00 0 
+ffffa4021000-ffffa8000000 ---p 00000000 00:00 0 
+ffffa8000000-ffffa8021000 rw-p 00000000 00:00 0 
+ffffa8021000-ffffac000000 ---p 00000000 00:00 0 
+ffffac000000-ffffac270000 rwxp 00000000 00:00 0 
+ffffac270000-ffffb4000000 ---p 00000000 00:00 0 
+ffffb4000000-ffffb4385000 rw-p 00000000 00:00 0 
+ffffb4385000-ffffb8000000 ---p 00000000 00:00 0 
+ffffb80ff000-ffffb8640000 rw-p 00000000 00:00 0 
+ffffb8640000-ffffb8a00000 ---p 00000000 00:00 0 
+ffffb8a00000-ffffb8dd4000 rw-p 00000000 00:00 0 
+ffffb8e00000-ffffb8e01000 ---p 00000000 00:00 0 
+ffffb8e01000-ffffb9001000 rw-p 00000000 00:00 0 
+ffffb90ff000-ffffb9200000 rw-p 00000000 00:00 0 
+ffffb9200000-ffffb9201000 ---p 00000000 00:00 0 
+ffffb9201000-ffffb9401000 rw-p 00000000 00:00 0 
+ffffb94ff000-ffffb9600000 rw-p 00000000 00:00 0 
+ffffb9600000-ffffb9601000 ---p 00000000 00:00 0 
+ffffb9601000-ffffb9801000 rw-p 00000000 00:00 0 
+ffffb98ff000-ffffb9a00000 rw-p 00000000 00:00 0 
+ffffb9a00000-ffffb9a01000 ---p 00000000 00:00 0 
+ffffb9a01000-ffffb9c01000 rw-p 00000000 00:00 0 
+ffffb9cff000-ffffb9e00000 rw-p 00000000 00:00 0 
+ffffb9e00000-ffffb9e01000 ---p 00000000 00:00 0 
+ffffb9e01000-ffffba001000 rw-p 00000000 00:00 0 
+ffffba0ff000-ffffba200000 rw-p 00000000 00:00 0 
+ffffba200000-ffffba201000 ---p 00000000 00:00 0 
+ffffba201000-ffffba401000 rw-p 00000000 00:00 0 
+ffffba4bc000-ffffba600000 rw-p 00000000 00:00 0 
+ffffba600000-ffffba601000 ---p 00000000 00:00 0 
+ffffba601000-ffffba801000 rw-p 00000000 00:00 0 
+ffffba83c000-ffffbaa00000 rw-p 00000000 00:00 0 
+ffffbaa00000-ffffbaa01000 ---p 00000000 00:00 0 
+ffffbaa01000-ffffbac01000 rw-p 00000000 00:00 0 
+ffffbac0f000-ffffbac33000 rw-p 00000000 00:00 0 
+ffffbac33000-ffffbac51000 r-xp 00000000 00:3e 368295                     /usr/lib64/liblzo2.so.2.0.0
+ffffbac51000-ffffbac62000 ---p 0001e000 00:3e 368295                     /usr/lib64/liblzo2.so.2.0.0
+ffffbac62000-ffffbac63000 r--p 0001f000 00:3e 368295                     /usr/lib64/liblzo2.so.2.0.0
+ffffbac63000-ffffbac64000 rw-p 00020000 00:3e 368295                     /usr/lib64/liblzo2.so.2.0.0
+ffffbac64000-ffffbac9d000 rw-p 00000000 00:00 0 
+ffffbac9d000-ffffbacb8000 r-xp 00000000 00:3e 367526                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnet.so
+ffffbacb8000-ffffbaccc000 ---p 0001b000 00:3e 367526                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnet.so
+ffffbaccc000-ffffbaccd000 r--p 0001f000 00:3e 367526                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnet.so
+ffffbaccd000-ffffbacce000 rw-p 00020000 00:3e 367526                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnet.so
+ffffbacce000-ffffbace1000 r-xp 00000000 00:3e 367527                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnio.so
+ffffbace1000-ffffbacfd000 ---p 00013000 00:3e 367527                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnio.so
+ffffbacfd000-ffffbacfe000 r--p 0001f000 00:3e 367527                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnio.so
+ffffbacfe000-ffffbacff000 rw-p 00020000 00:3e 367527                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libnio.so
+ffffbacff000-ffffbae00000 rw-p 00000000 00:00 0 
+ffffbae00000-ffffbae01000 ---p 00000000 00:00 0 
+ffffbae01000-ffffbb001000 rw-p 00000000 00:00 0 
+ffffbb018000-ffffbb200000 rw-p 00000000 00:00 0 
+ffffbb200000-ffffbb201000 ---p 00000000 00:00 0 
+ffffbb201000-ffffbb401000 rw-p 00000000 00:00 0 
+ffffbb40d000-ffffbb42e000 rw-p 00000000 00:00 0 
+ffffbb42e000-ffffbb600000 r--s 044cb000 00:3e 367594                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/rt.jar
+ffffbb600000-ffffbb62a000 rw-p 00000000 00:00 0 
+ffffbb62a000-ffffbb88e000 ---p 00000000 00:00 0 
+ffffbb89f000-ffffbba2a000 rw-p 00000000 00:00 0 
+ffffbba2a000-ffffbbc8d000 ---p 00000000 00:00 0 
+ffffbbc8d000-ffffbbca2000 rw-p 00000000 00:00 0 
+ffffbbca2000-ffffbbdd4000 ---p 00000000 00:00 0 
+ffffbbdd4000-ffffbbdd5000 rw-p 00000000 00:00 0 
+ffffbbdd8000-ffffbbe0a000 rw-p 00000000 00:00 0 
+ffffbbe0a000-ffffbc000000 ---p 00000000 00:00 0 
+ffffbc000000-ffffbc001000 ---p 00000000 00:00 0 
+ffffbc001000-ffffbc004000 ---p 00000000 00:00 0 
+ffffbc004000-ffffbc201000 rw-p 00000000 00:00 0 
+ffffbc204000-ffffbc28d000 rw-p 00000000 00:00 0 
+ffffbc28d000-ffffbc296000 r-xp 00000000 00:3e 367534                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libzip.so
+ffffbc296000-ffffbc2ac000 ---p 00009000 00:3e 367534                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libzip.so
+ffffbc2ac000-ffffbc2ad000 r--p 0000f000 00:3e 367534                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libzip.so
+ffffbc2ad000-ffffbc2ae000 rw-p 00010000 00:3e 367534                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libzip.so
+ffffbc2ae000-ffffbc2bd000 r-xp 00000000 00:3e 2163                       /usr/lib64/libnss_files-2.26.so
+ffffbc2bd000-ffffbc2cd000 ---p 0000f000 00:3e 2163                       /usr/lib64/libnss_files-2.26.so
+ffffbc2cd000-ffffbc2ce000 r--p 0000f000 00:3e 2163                       /usr/lib64/libnss_files-2.26.so
+ffffbc2ce000-ffffbc2cf000 rw-p 00010000 00:3e 2163                       /usr/lib64/libnss_files-2.26.so
+ffffbc2cf000-ffffbc2d5000 rw-p 00000000 00:00 0 
+ffffbc2d5000-ffffbc302000 r-xp 00000000 00:3e 367516                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libjava.so
+ffffbc302000-ffffbc314000 ---p 0002d000 00:3e 367516                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libjava.so
+ffffbc314000-ffffbc315000 r--p 0002f000 00:3e 367516                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libjava.so
+ffffbc315000-ffffbc317000 rw-p 00030000 00:3e 367516                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libjava.so
+ffffbc317000-ffffbc324000 r-xp 00000000 00:3e 367533                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libverify.so
+ffffbc324000-ffffbc335000 ---p 0000d000 00:3e 367533                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libverify.so
+ffffbc335000-ffffbc337000 r--p 0000e000 00:3e 367533                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libverify.so
+ffffbc337000-ffffbc338000 rw-p 00010000 00:3e 367533                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/libverify.so
+ffffbc338000-ffffbc33f000 r-xp 00000000 00:3e 2213                       /usr/lib64/librt-2.26.so
+ffffbc33f000-ffffbc357000 ---p 00007000 00:3e 2213                       /usr/lib64/librt-2.26.so
+ffffbc357000-ffffbc358000 r--p 0000f000 00:3e 2213                       /usr/lib64/librt-2.26.so
+ffffbc358000-ffffbc359000 rw-p 00010000 00:3e 2213                       /usr/lib64/librt-2.26.so
+ffffbc359000-ffffbc36d000 r-xp 00000000 00:3e 2079                       /usr/lib64/libgcc_s-7-20180712.so.1
+ffffbc36d000-ffffbc388000 ---p 00014000 00:3e 2079                       /usr/lib64/libgcc_s-7-20180712.so.1
+ffffbc388000-ffffbc389000 r--p 0001f000 00:3e 2079                       /usr/lib64/libgcc_s-7-20180712.so.1
+ffffbc389000-ffffbc38a000 rw-p 00020000 00:3e 2079                       /usr/lib64/libgcc_s-7-20180712.so.1
+ffffbc38a000-ffffbc436000 r-xp 00000000 00:3e 2136                       /usr/lib64/libm-2.26.so
+ffffbc436000-ffffbc449000 ---p 000ac000 00:3e 2136                       /usr/lib64/libm-2.26.so
+ffffbc449000-ffffbc44a000 r--p 000af000 00:3e 2136                       /usr/lib64/libm-2.26.so
+ffffbc44a000-ffffbc44b000 rw-p 000b0000 00:3e 2136                       /usr/lib64/libm-2.26.so
+ffffbc44b000-ffffbc5db000 r-xp 00000000 00:3e 2232                       /usr/lib64/libstdc++.so.6.0.24
+ffffbc5db000-ffffbc5f1000 ---p 00190000 00:3e 2232                       /usr/lib64/libstdc++.so.6.0.24
+ffffbc5f1000-ffffbc5fb000 r--p 00196000 00:3e 2232                       /usr/lib64/libstdc++.so.6.0.24
+ffffbc5fb000-ffffbc5fd000 rw-p 001a0000 00:3e 2232                       /usr/lib64/libstdc++.so.6.0.24
+ffffbc5fd000-ffffbc600000 rw-p 00000000 00:00 0 
+ffffbc600000-ffffbd39e000 r-xp 00000000 00:3e 367538                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/server/libjvm.so
+ffffbd39e000-ffffbd3b5000 ---p 00d9e000 00:3e 367538                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/server/libjvm.so
+ffffbd3b5000-ffffbd440000 r--p 00da5000 00:3e 367538                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/server/libjvm.so
+ffffbd440000-ffffbd46b000 rw-p 00e30000 00:3e 367538                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/server/libjvm.so
+ffffbd46b000-ffffbd4d0000 rw-p 00000000 00:00 0 
+ffffbd4d9000-ffffbd645000 r-xp 00000000 00:3e 2047                       /usr/lib64/libc-2.26.so
+ffffbd645000-ffffbd655000 ---p 0016c000 00:3e 2047                       /usr/lib64/libc-2.26.so
+ffffbd655000-ffffbd659000 r--p 0016c000 00:3e 2047                       /usr/lib64/libc-2.26.so
+ffffbd659000-ffffbd65b000 rw-p 00170000 00:3e 2047                       /usr/lib64/libc-2.26.so
+ffffbd65b000-ffffbd65f000 rw-p 00000000 00:00 0 
+ffffbd65f000-ffffbd662000 r-xp 00000000 00:3e 2063                       /usr/lib64/libdl-2.26.so
+ffffbd662000-ffffbd67e000 ---p 00003000 00:3e 2063                       /usr/lib64/libdl-2.26.so
+ffffbd67e000-ffffbd67f000 r--p 0000f000 00:3e 2063                       /usr/lib64/libdl-2.26.so
+ffffbd67f000-ffffbd680000 rw-p 00010000 00:3e 2063                       /usr/lib64/libdl-2.26.so
+ffffbd680000-ffffbd68f000 r-xp 00000000 00:3e 367503                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/jli/libjli.so
+ffffbd68f000-ffffbd69f000 ---p 0000f000 00:3e 367503                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/jli/libjli.so
+ffffbd69f000-ffffbd6a0000 r--p 0000f000 00:3e 367503                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/jli/libjli.so
+ffffbd6a0000-ffffbd6a1000 rw-p 00010000 00:3e 367503                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/aarch64/jli/libjli.so
+ffffbd6a1000-ffffbd6b5000 r-xp 00000000 00:3e 2252                       /usr/lib64/libz.so.1.2.7
+ffffbd6b5000-ffffbd6d0000 ---p 00014000 00:3e 2252                       /usr/lib64/libz.so.1.2.7
+ffffbd6d0000-ffffbd6d1000 r--p 0001f000 00:3e 2252                       /usr/lib64/libz.so.1.2.7
+ffffbd6d1000-ffffbd6d2000 rw-p 00020000 00:3e 2252                       /usr/lib64/libz.so.1.2.7
+ffffbd6d2000-ffffbd6ee000 r-xp 00000000 00:3e 2198                       /usr/lib64/libpthread-2.26.so
+ffffbd6ee000-ffffbd701000 ---p 0001c000 00:3e 2198                       /usr/lib64/libpthread-2.26.so
+ffffbd701000-ffffbd702000 r--p 0001f000 00:3e 2198                       /usr/lib64/libpthread-2.26.so
+ffffbd702000-ffffbd703000 rw-p 00020000 00:3e 2198                       /usr/lib64/libpthread-2.26.so
+ffffbd703000-ffffbd707000 rw-p 00000000 00:00 0 
+ffffbd707000-ffffbd727000 r-xp 00000000 00:3e 2030                       /usr/lib64/ld-2.26.so
+ffffbd72c000-ffffbd732000 r--s 000f6000 00:3e 367577                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.412.b08-1.amzn2.0.1.aarch64/jre/lib/jfr.jar
+ffffbd732000-ffffbd73a000 rw-s 00000000 00:3e 361034                     /tmp/hsperfdata_root/1
+ffffbd73a000-ffffbd73c000 rw-p 00000000 00:00 0 
+ffffbd740000-ffffbd741000 r--p 00000000 00:00 0 
+ffffbd741000-ffffbd743000 rw-p 00000000 00:00 0 
+ffffbd743000-ffffbd745000 r--p 00000000 00:00 0                          [vvar]
+ffffbd745000-ffffbd746000 r-xp 00000000 00:00 0                          [vdso]
+ffffbd746000-ffffbd747000 r--p 0002f000 00:3e 2030                       /usr/lib64/ld-2.26.so
+ffffbd747000-ffffbd749000 rw-p 00030000 00:3e 2030                       /usr/lib64/ld-2.26.so
+ffffdb00a000-ffffdb02b000 rw-p 00000000 00:00 0                          [stack]
+
+VM Arguments:
+java_command: org.chess.cb.Cbh2PgnTask test.cbh output
+java_class_path (initial): build
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH=/libs:
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb62640], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb62640], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x916340], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x916340], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x916340], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x916340], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x91616c], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x9162c8], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x9162c8], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x9162c8], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x9162c8], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Amazon Linux release 2 (Karoo)
+
+uname:Linux 6.10.14-linuxkit #1 SMP Thu Oct 24 19:28:55 UTC 2024 aarch64
+libc:glibc 2.26 NPTL 2.26 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 1048576, AS infinity
+load average:0.39 0.29 0.24
+
+/proc/meminfo:
+MemTotal:        8025084 kB
+MemFree:         5954884 kB
+MemAvailable:    7218492 kB
+Buffers:          205256 kB
+Cached:          1157824 kB
+SwapCached:            0 kB
+Active:           619172 kB
+Inactive:        1025176 kB
+Active(anon):     282228 kB
+Inactive(anon):        0 kB
+Active(file):     336944 kB
+Inactive(file):  1025176 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       1048572 kB
+SwapFree:        1048572 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:            638436 kB
+Writeback:           152 kB
+AnonPages:        272016 kB
+Mapped:           172224 kB
+Shmem:               912 kB
+KReclaimable:      96032 kB
+Slab:             150436 kB
+SReclaimable:      96032 kB
+SUnreclaim:        54404 kB
+KernelStack:        5824 kB
+PageTables:         2956 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5061112 kB
+Committed_AS:    1341968 kB
+VmallocTotal:   135288315904 kB
+VmallocUsed:        5520 kB
+VmallocChunk:          0 kB
+Percpu:             3792 kB
+AnonHugePages:    192512 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: failed
+cpu_memory_nodes: failed
+active_processor_count: 12
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: 0
+memory_usage_in_bytes: 732520448
+memory_max_usage_in_bytes: -2
+
+
+CPU:total 12 (initial active 12) simd, crc, aes, sha1, sha256, lse
+
+/proc/cpuinfo:
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 3
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 4
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 5
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 6
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 7
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 8
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 9
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 10
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 11
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint afp
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+
+
+Memory: 4k page, physical 8025084k(5954884k free), swap 1048572k(1048572k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.412-b08) for linux-aarch64 JRE (1.8.0_412-b08), built on May  2 2024 17:39:01 by "mockbuild" with gcc 7.3.1 20180712 (Red Hat 7.3.1-17)
+
+time: Wed Dec 18 11:56:51 2024
+timezone: UTC
+elapsed time: 0.117886 seconds (0d 0h 0m 0s)
+
