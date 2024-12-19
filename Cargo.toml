@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "uncbv",
+    "uncbv-jni"
+]
+
+[profile.release]
+lto = true
+opt-level = 3
