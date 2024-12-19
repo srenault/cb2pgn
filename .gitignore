@@ -1,1 +1,2 @@
-build/libcb2pgn.so
+build/
+*.class

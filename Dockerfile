@@ -1,24 +1,18 @@
 # Dockerfile
-FROM amazonlinux:2
+FROM --platform=linux/amd64 rust:1.50
 
-# Install build dependencies
-RUN yum update -y && \
-    yum groupinstall -y "Development Tools" && \
-    yum install -y cmake3 lzo-devel liblzo2-devel expat-devel java-1.8.0-openjdk-devel && \
-    ln -s /usr/bin/cmake3 /usr/bin/cmake
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y build-essential default-jdk
 
-# Set up build directory
-WORKDIR /build
+# Create workspace directory
+WORKDIR /workspace
 
-# Copy source files
+# Copy the source code
 COPY . .
 
-# Build
-RUN mkdir -p build && cd build && \
-    cmake -DCMAKE_BUILD_TYPE=Release \
-          -DBUILD_LAMBDA=ON \
-          .. && \
-    make -j$(nproc)
+# Set environment variables for legacy compatibility
+ENV RUSTFLAGS="-C target-feature=-crt-static"
 
-# Copy the built library
-CMD ["cp", "build/libcb2pgn.so", "/output/"]
+# Build the project
+CMD ["./docker-build.sh"]
