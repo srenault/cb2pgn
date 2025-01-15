@@ -6,7 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2012 Gregor Cramer
+// Copyright: (C) 2012-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -17,6 +17,7 @@
 // ======================================================================
 
 #include "m_utility.h"
+#include "m_construct.h"
 #include "m_assert.h"
 
 namespace mstl {
@@ -77,7 +78,7 @@ list<T>::iterator::operator->() const
 
 template <typename T>
 inline
-typename list<T>::iterator::iterator&
+typename list<T>::iterator&
 list<T>::iterator::operator++()
 {
 	M_ASSERT(m_node);
@@ -89,7 +90,7 @@ list<T>::iterator::operator++()
 
 template <typename T>
 inline
-typename list<T>::iterator::iterator
+typename list<T>::iterator
 list<T>::iterator::operator++(int)
 {
 	M_ASSERT(m_node);
@@ -102,7 +103,7 @@ list<T>::iterator::operator++(int)
 
 template <typename T>
 inline
-typename list<T>::iterator::iterator&
+typename list<T>::iterator&
 list<T>::iterator::operator--()
 {
 	M_ASSERT(m_node);
@@ -114,7 +115,7 @@ list<T>::iterator::operator--()
 
 template <typename T>
 inline
-typename list<T>::iterator::iterator
+typename list<T>::iterator
 list<T>::iterator::operator--(int)
 {
 	M_ASSERT(m_node);
@@ -130,6 +131,8 @@ inline
 void
 list<T>::iterator::advance(int n)
 {
+	M_ASSERT(m_node);
+
 	if (n < 0)
 	{
 		for ( ; n < 0; ++n)
@@ -278,7 +281,7 @@ list<T>::const_iterator::operator->() const
 
 template <typename T>
 inline
-typename list<T>::const_iterator::const_iterator&
+typename list<T>::const_iterator&
 list<T>::const_iterator::operator++()
 {
 	M_ASSERT(m_node);
@@ -290,7 +293,7 @@ list<T>::const_iterator::operator++()
 
 template <typename T>
 inline
-typename list<T>::const_iterator::const_iterator
+typename list<T>::const_iterator
 list<T>::const_iterator::operator++(int)
 {
 	M_ASSERT(m_node);
@@ -303,7 +306,7 @@ list<T>::const_iterator::operator++(int)
 
 template <typename T>
 inline
-typename list<T>::const_iterator::const_iterator&
+typename list<T>::const_iterator&
 list<T>::const_iterator::operator--()
 {
 	M_ASSERT(m_node);
@@ -318,6 +321,8 @@ inline
 void
 list<T>::const_iterator::advance(int n)
 {
+	M_ASSERT(m_node);
+
 	if (n < 0)
 	{
 		for ( ; n < 0; ++n)
@@ -364,7 +369,7 @@ list<T>::const_iterator::operator+(int n) const
 
 template <typename T>
 inline
-typename list<T>::const_iterator::const_iterator
+typename list<T>::const_iterator
 list<T>::const_iterator::operator-(int n) const
 {
 	const_iterator i(*this);
@@ -375,7 +380,7 @@ list<T>::const_iterator::operator-(int n) const
 
 template <typename T>
 inline
-typename list<T>::const_iterator::const_iterator
+typename list<T>::const_iterator
 list<T>::const_iterator::operator--(int)
 {
 	M_ASSERT(m_node);
@@ -494,10 +499,19 @@ list<T>::end() const
 
 template <typename T>
 inline
+bool
+list<T>::empty() const
+{
+	return m_size == 0;
+}
+
+
+template <typename T>
+inline
 typename list<T>::reference
 list<T>::front()
 {
-	//M_REQUIRE(!empty());
+	M_REQUIRE(!empty());
 	return static_cast<node*>(m_node.m_next)->m_data;
 }
 
@@ -507,7 +521,7 @@ inline
 typename list<T>::const_reference
 list<T>::front() const
 {
-	//M_REQUIRE(!empty());
+	M_REQUIRE(!empty());
 	return static_cast<node const*>(m_node.m_next)->m_data;
 }
 
@@ -517,7 +531,7 @@ inline
 typename list<T>::reference
 list<T>::back()
 {
-	//M_REQUIRE(!empty());
+	M_REQUIRE(!empty());
 	return static_cast<node*>(m_node.m_prev)->m_data;
 }
 
@@ -527,43 +541,9 @@ inline
 typename list<T>::const_reference
 list<T>::back() const
 {
-	//M_REQUIRE(!empty());
+	M_REQUIRE(!empty());
 	return static_cast<node const*>(m_node.m_prev)->m_data;
 }
-
-
-#if 0
-template <typename T>
-inline
-typename list<T>::reference
-list<T>::operator[](size_type n)
-{
-	//M_REQUIRE(n < size());
-
-	node* curr = static_cast<node*>(m_node.m_next);
-
-	for ( ; n > 0; --n)
-		curr = static_cast<node*>(curr->m_next);
-
-	return curr->m_data;
-}
-
-
-template <typename T>
-inline
-typename list<T>::const_reference
-list<T>::operator[](size_type n) const
-{
-	//M_REQUIRE(n < size());
-
-	node const* curr = static_cast<node const*>(m_node.m_next);
-
-	for ( ; n > 0; --n)
-		curr = static_cast<node const*>(curr->m_next);
-
-	return curr->m_data;
-}
-#endif
 
 
 template <typename T>
@@ -573,15 +553,15 @@ list<T>::create_node(T const& x)
 {
 	node* p = static_cast<node*>(::operator new(sizeof(node)));
 
-//	try
-//	{
+	try
+	{
 		mstl::bits::construct(&p->m_data, x);
-//	}
-//	catch (...)
-//	{
-//		::operator delete(p);
-//		throw;
-//	}
+	}
+	catch (...)
+	{
+		::operator delete(p);
+		throw;
+	}
 
 	++m_size;
 	return p;
@@ -637,8 +617,8 @@ inline
 typename list<T>::iterator
 list<T>::erase(iterator i)
 {
-	iterator ret = iterator(i.m_next->m_next);
-	erase(i.base());
+	iterator ret = iterator(i.base()->m_next);
+	erase(static_cast<node*>(i.base()));
 	return ret;
 }
 
@@ -658,36 +638,11 @@ list<T>::erase(iterator first, iterator last)
 template <typename T>
 inline
 void
-list<T>::push_back(const_reference v)
-{
-	create_node(v)->hook(&m_node);
-}
-
-
-template <typename T>
-inline
-void
-list<T>::push_back()
-{
-	create_node(T())->hook(&m_node);
-}
-
-
-template <typename T>
-inline
-void
-list<T>::pop_back()
-{
-	//M_REQUIRE(!empty());
-	erase(m_node.m_prev);
-}
-
-
-template <typename T>
-inline
-void
 list<T>::resize(size_type n, const_reference v)
 {
+	if (n == size())
+		return;
+
 	iterator		i		= begin();
 	size_type	len	= 0;
 
@@ -734,7 +689,8 @@ inline
 void
 list<T>::swap(list& v)
 {
-	bits::node_base::swap(m_node, v.m_node);
+	m_node.swap(v.m_node);
+	swap(m_size, v.m_size);
 }
 
 
@@ -781,8 +737,6 @@ list<T>::operator=(list&& v)
 template <typename T> inline void swap(list<T>& lhs, list<T>& rhs) { lhs.swap(rhs); }
 
 template <typename T> inline list<T>::list() { init(); }
-
-template <typename T> inline bool list<T>::empty() const { return m_node.m_next == &m_node; }
 
 } // namespace mstl
 

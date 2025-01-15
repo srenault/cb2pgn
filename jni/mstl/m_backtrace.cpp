@@ -17,7 +17,13 @@
 // ======================================================================
 
 #include "m_backtrace.h"
-#include "m_chunk_allocator.h"
+#include "m_exception.h"
+#include "m_string.h"
+#include "m_assert.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 /// \class backtrace
 ///
@@ -40,7 +46,7 @@ backtrace::~backtrace() throw() {}
 
 backtrace const& backtrace::operator=(backtrace const&) { return *this; }
 bool backtrace::is_debug_mode() { return false; }
-void backtrace::text_write(ostringstream&, size_t) const {}
+void backtrace::text_write(ostringstream&, unsigned) const {}
 
 #else // __OPTIMIZE__
 

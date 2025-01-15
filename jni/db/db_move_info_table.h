@@ -57,7 +57,6 @@ public:
 	void set(EngineList const& engines);
 
 	void resize(unsigned n);
-	void reserve(unsigned n);
 	void clear();
 
 	bool extractFromComment(unsigned n, mstl::string& comment);

@@ -16,14 +16,13 @@
 // (at your option) any later version.
 // ======================================================================
 
-extern "C" {
-#include "extrastdio.h"
-}
 #include "m_sstream.h"
-#include "m_stdio.h"
+#include "m_exception.h"
+#include "m_string.h"
 #include "m_assert.h"
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 using namespace mstl;

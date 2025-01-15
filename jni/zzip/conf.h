@@ -11,6 +11,9 @@
 #ifndef _ZZIP_CONF_H
 #define _ZZIP_CONF_H 1
 
+#include <sys/types.h>
+#include <zlib.h>
+
 #if !defined ZZIP_OMIT_CONFIG_H
 # if defined _MSC_VER || defined __BORLANDC__ || defined __WATCOMC__
 # include <zzip/_msvc.h>

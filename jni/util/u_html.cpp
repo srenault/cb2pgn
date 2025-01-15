@@ -17,10 +17,12 @@
 // ======================================================================
 
 #include "u_html.h"
+#include "sys_utf8.h"
+#include <expat.h>
 
 #include "Hyphenator.h"
 
-#include "sys_utf8.h"
+#include "u_utf8.h"
 
 #include "m_utility.h"
 #include "m_pair.h"

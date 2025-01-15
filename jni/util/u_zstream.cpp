@@ -16,12 +16,14 @@
 // (at your option) any later version.
 // ======================================================================
 
-extern "C" {
-#include "extrastdio.h"
-}
 #include "u_zstream.h"
 #include "u_byte_stream.h"
 #include "u_misc.h"
+#include "sys_time.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "m_ifstream.h"
 #include "m_stdio.h"
@@ -30,8 +32,6 @@ extern "C" {
 #include <zzip.h>
 #include <zlib.h>
 #include <zip.h>
-
-#include <string.h>
 
 #ifndef MAX
 # define MAX(a,b) ((a) < (b) ? b : a)
