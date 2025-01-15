@@ -41,7 +41,7 @@ inline void MoveInfoTable::clear()					{ m_table.clear(); }
 inline bool
 MoveInfoTable::isEmpty(unsigned n) const
 {
-	return n >= m_table.size() || m_table[n].isEmpty();
+	return n < m_table.size() || m_table[n].isEmpty();
 }
 
 } // namespace db

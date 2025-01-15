@@ -1,1 +1,4 @@
-build/libcb2pgn.so
+build/
+test/build
+test/output
+jni/.DS_Store

@@ -70,11 +70,6 @@ void PipedProgress::update(unsigned progress)
 	}
 }
 
-void PipedProgress::refresh(unsigned progress)
-{
-	update(progress);
-}
-
 void PipedProgress::finish() throw()
 {
 	if (!m_interrupted)

@@ -36,7 +36,6 @@ public:
 
 	void start(unsigned total) override;
 	void update(unsigned progress) override;
-	void refresh(unsigned progress);
 	void finish() throw() override;
 
 private:
