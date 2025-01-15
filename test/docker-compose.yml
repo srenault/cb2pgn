@@ -1,0 +1,8 @@
+version: '3'
+services:
+  test:
+    image: amazonlinux:2
+    volumes:
+      - .:/test
+      - ../build:/libs
+    working_dir: /test 
