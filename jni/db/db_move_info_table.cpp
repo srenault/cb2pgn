@@ -104,8 +104,8 @@ MoveInfoTable::decode(ByteStream& strm)
 
 	while (strm.remaining())
 	{
-		unsigned skip = m.decode(strm);
-		m_table.resize((index += skip) + 1);
+		m.decode(strm);
+		m_table.resize(index + 1);
 		m_table[index].add(m);
 	}
 }
@@ -114,33 +114,25 @@ MoveInfoTable::decode(ByteStream& strm)
 void
 MoveInfoTable::encode(ByteStream& strm) const
 {
-	unsigned skip = 0;
 
 	for (unsigned i = 0; i < m_table.size(); ++i)
 	{
-		if (m_table[i].isEmpty())
-		{
-			++skip;
-		}
-		else
+		if (!m_table[i].isEmpty())
 		{
 			MoveInfoSet const& row = m_table[i];
 			unsigned count = 0;
 
-			for (unsigned k = 0; k < row.size(); ++k)
+			for (unsigned k = 0; k < row.count(); ++k)
 			{
 				MoveInfo const& m = row[k];
 
 				if (!m.isEmpty())
 				{
-					m.encode(strm, skip);
-					skip = 0;
+					m.encode(strm);
+
 					++count;
 				}
 			}
-
-			if (count)
-				skip = 1;
 		}
 	}
 }

@@ -17,26 +17,23 @@
 // ======================================================================
 
 #include "u_piped_progress.h"
-
+#include "sys_pipe.h"
 #include "sys_thread.h"
 
 #include "m_utility.h"
 #include "m_assert.h"
 
-using namespace util;
+namespace util {
 
-
-PipedProgress::PipedProgress() : m_total(0), m_interrupted(false), m_prevValue(-1) {}
-
-bool PipedProgress::interruptReceived() const { return m_interrupted; }
-
-
-bool
-PipedProgress::interrupted()
+PipedProgress::PipedProgress()
+	: m_total(0)
+	, m_interrupted(false)
+	, m_prevValue(-1)
 {
-	if (!sys::thread::testCancel())
-		return false;
+}
 
+bool PipedProgress::interrupted()
+{
 	if (!m_interrupted)
 	{
 		send(0);
@@ -46,9 +43,12 @@ PipedProgress::interrupted()
 	return true;
 }
 
+bool PipedProgress::interruptReceived() const
+{
+	return m_interrupted;
+}
 
-void
-PipedProgress::start(unsigned total)
+void PipedProgress::start(unsigned total)
 {
 	m_total = total;
 	setFrequency(mstl::max(1u, total/254));
@@ -56,12 +56,8 @@ PipedProgress::start(unsigned total)
 	m_prevValue = -1;
 }
 
-
-void
-PipedProgress::update(unsigned progress)
+void PipedProgress::update(unsigned progress)
 {
-	//M_REQUIRE(!interruptReceived());
-
 	if (progress < m_total)
 	{
 		unsigned c = unsigned((progress/m_total)*254.0 + 0.5);
@@ -74,12 +70,12 @@ PipedProgress::update(unsigned progress)
 	}
 }
 
-
-void
-PipedProgress::finish() throw()
+void PipedProgress::finish() throw()
 {
 	if (!m_interrupted)
 		send(255);
 }
+
+} // namespace util
 
 // vi:set ts=3 sw=3:

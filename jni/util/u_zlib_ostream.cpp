@@ -16,10 +16,10 @@
 // (at your option) any later version.
 // ======================================================================
 
-extern "C" {
-#include "extrastdio.h"
-}
 #include "u_zlib_ostream.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "m_assert.h"
 

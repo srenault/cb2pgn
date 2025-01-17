@@ -128,10 +128,8 @@ public:
 
 	list& operator=(list const& v);
 
-#if 0
 	reference operator[](size_type n);
 	const_reference operator[](size_type n) const;
-#endif
 
 	reference front();
 	const_reference front() const;

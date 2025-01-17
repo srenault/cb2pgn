@@ -34,7 +34,6 @@ inline MoveInfoSet& MoveInfoTable::operator[](unsigned n)					{ return m_table[n
 inline MoveInfoSet& MoveInfoTable::back()											{ return m_table.back(); }
 
 inline void MoveInfoTable::resize(unsigned n)	{ m_table.resize(n); }
-inline void MoveInfoTable::reserve(unsigned n)	{ m_table.reserve(n); }
 inline void MoveInfoTable::clear()					{ m_table.clear(); }
 
 

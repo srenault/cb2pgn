@@ -14,13 +14,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include <android/log.h>
+#include <iostream>
 
 #define  LOG_TAG    "NATIVECB"
-#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-#define  LOGW(...)  __android_log_print(ANDROID_LOG_WARN,LOG_TAG,__VA_ARGS__)
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
+#define  LOGD(...)  do { printf("[DEBUG] " LOG_TAG ": "); printf(__VA_ARGS__); printf("\n"); } while(0)
+#define  LOGI(...)  do { printf("[INFO] " LOG_TAG ": "); printf(__VA_ARGS__); printf("\n"); } while(0)
+#define  LOGW(...)  do { printf("[WARN] " LOG_TAG ": "); printf(__VA_ARGS__); printf("\n"); } while(0)
+#define  LOGE(...)  do { printf("[ERROR] " LOG_TAG ": "); printf(__VA_ARGS__); printf("\n"); } while(0)
 
 
 using namespace db;
@@ -42,16 +42,28 @@ static unsigned rejected = 0;
 
 struct Progress : public util::Progress
 {
-    void update(JNIEnv* env, jobject obj, jmethodID progressMid, unsigned progress) override
+    void update(unsigned progress) override
     {
-        if (progressMid != 0) {
-            env->CallVoidMethod(obj, progressMid, progress);
+        if (m_progressMid != 0 && m_env != nullptr && m_obj != nullptr) {
+            m_env->CallVoidMethod(m_obj, m_progressMid, progress);
         }
     }
 
     void finish() throw() override
     {
     }
+
+    void setJNIContext(JNIEnv* env, jobject obj, jmethodID progressMid)
+    {
+        m_env = env;
+        m_obj = obj;
+        m_progressMid = progressMid;
+    }
+
+private:
+    JNIEnv* m_env = nullptr;
+    jobject m_obj = nullptr;
+    jmethodID m_progressMid = 0;
 };
 
 struct Log : public db::Log
@@ -99,6 +111,7 @@ exportGames(JNIEnv* env, jobject obj, jmethodID progressMid, Database& src, Cons
     }
     env->DeleteLocalRef(cls);
 
+    progress.setJNIContext(env, obj, progressMid);
     util::ProgressWatcher watcher(progress, numGames);
     progress.setFrequency(mstl::min(5000u, mstl::max(numGames/100, 1u)));
 
@@ -112,7 +125,7 @@ exportGames(JNIEnv* env, jobject obj, jmethodID progressMid, Database& src, Cons
     {
         if (reportAfter == count++)
         {
-            progress.update(env, obj, progressMid, count);
+            progress.update(count);
             reportAfter += progress.frequency();
         }
         save::State state = src.exportGame(i, dst);
