@@ -19,7 +19,8 @@
 
 ## In Progress 🔄
 
-## Backlog 📋 (Ordered by priority)
-
-### Build the C++ library for CGO as well
-### Add a new test program to test GO implementation
+### CGO Implementation
+    Implement CGO bindings to expose core functionality to Go.
+    Refactor build system to produce a single shared library (`libcb2pgn.so`).
+    Update JNI and CGO implementations to link against the shared library.
+    Split Docker configuration into separate Java and Go build environments.

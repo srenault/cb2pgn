@@ -16,8 +16,7 @@ COPY . .
 # Build
 RUN mkdir -p build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release \
-          -DBUILD_LAMBDA=ON \
-          .. && \
+          ../cb2pgnlib && \
     make -j$(nproc)
 
 # Copy the built library
