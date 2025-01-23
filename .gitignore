@@ -2,3 +2,4 @@ build/
 test/build
 test/output
 jni/.DS_Store
+.DS_Store

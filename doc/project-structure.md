@@ -1,7 +1,9 @@
 # Project Structure
 
-## Core Library (`jni/`)
-The core C++ library that handles ChessBase file conversion.
+## Core Library Components
+
+### Core Library (`cb2pgnlib/`)
+The main C++ library implementation for ChessBase file conversion:
 
 - `db/` - Database handling components
   - Move information and chess position storage
@@ -21,7 +23,17 @@ The core C++ library that handles ChessBase file conversion.
   - ZIP file format support
   - File decompression utilities
 
+- `zlib/` - Compression library support
+- `sys/` - System-specific implementations
+- `universalchardet/` - Character encoding detection
+- `minizip/` - ZIP file format handling
+- `cb2pgnlib.cpp` - Main library implementation
+
+### JNI Interface (`jni/`)
+Native interface layer for Java integration:
 - `nativecb.cpp` - Main JNI interface implementation
+- Supporting C++ components for JNI bindings
+- Depends on `cb2pgnlib`
 
 ## Build System
 - `CMakeLists.txt` - Main CMake configuration
@@ -30,13 +42,16 @@ The core C++ library that handles ChessBase file conversion.
   - Manages library linking
 
 - `build.sh` - Build script for easy compilation
+- `docker-build.sh` - Docker-specific build script
 - `Dockerfile` - Container definition for Amazon Linux 2
 - `docker-compose.yml` - Development environment setup
+- `run.sh` - Script for running the application
 
 ## Documentation (`doc/`)
 - `architecture.md` - System architecture design
 - `project-status.md` - Project progress tracking
 - `project-structure.md` - This file
+- `backlog.md` - Project backlog and task tracking
 
 ## Testing (`test/`)
 - Java test program for JNI interface validation
