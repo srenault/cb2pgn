@@ -6,8 +6,8 @@ import java.io.IOException;
 public class Cbh2PgnTask {
     static {
         try {
-            System.out.println("Loading native library cb2pgn...");
-            System.loadLibrary("cb2pgn");
+            System.out.println("Loading native library openchessbase_jni...");
+            System.loadLibrary("openchessbase_jni");
             System.out.println("Successfully loaded native library");
         } catch (UnsatisfiedLinkError e) {
             System.err.println("Failed to load native library: " + e.getMessage());

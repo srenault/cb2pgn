@@ -13,11 +13,11 @@ WORKDIR /build
 # Copy source files
 COPY . .
 
-# Build
+# Build both libraries
 RUN mkdir -p build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release \
-          ../cb2pgnlib && \
+          .. && \
     make -j$(nproc)
 
-# Copy the built library
-CMD ["cp", "build/libcb2pgn.so", "/output/"]
+# Copy both libraries to output
+CMD cp build/cb2pgnlib/libcb2pgnlib.so build/jni/libopenchessbase_jni.so /output/

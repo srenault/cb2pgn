@@ -11,3 +11,4 @@ echo "Building cb2pgn library..."
 docker compose up --build builder
 
 echo "Done! Library is in build/libcb2pgn.so" 
+echo "Done! Library is in build/libopenchessbase_jni.so" 

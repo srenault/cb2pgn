@@ -38,10 +38,15 @@ docker compose run --rm test bash -c '
     ls -la /test
     ls -la /libs
 
-    # Create a specific directory for our library
+    # Create directories for our libraries
     mkdir -p /usr/local/lib/cb2pgn
-    cp /libs/libcb2pgn.so /usr/local/lib/cb2pgn/
-    chmod 755 /usr/local/lib/cb2pgn/libcb2pgn.so
+
+    # Copy libraries from the mounted volumes
+    cp /libs/libcb2pgnlib.so /usr/local/lib/cb2pgn/
+    cp /libs/libopenchessbase_jni.so /usr/local/lib/cb2pgn/
+
+    chmod 755 /usr/local/lib/cb2pgn/libcb2pgnlib.so
+    chmod 755 /usr/local/lib/cb2pgn/libopenchessbase_jni.so
     ldconfig /usr/local/lib/cb2pgn
 
     # Compile Java code
@@ -60,5 +65,5 @@ docker compose run --rm test bash -c '
     done
 
     echo "=== Starting Java program ==="
-    strace -f -e trace=file,read,write,open,stat java -verbose:jni -cp build org.chess.cb.Cbh2PgnTask /test/test.cbh /test/output
+    java -Djava.library.path=/usr/local/lib/cb2pgn -verbose:jni -cp build org.chess.cb.Cbh2PgnTask /test/test.cbh /test/output
 '
