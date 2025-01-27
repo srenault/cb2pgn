@@ -16,3 +16,6 @@ set(CB2PGNLIB_DIR ${CMAKE_BINARY_DIR}/cb2pgnlib)
 
 # Now build the JNI wrapper
 add_subdirectory(jni)
+
+# Build the CGO wrapper
+add_subdirectory(cgo)

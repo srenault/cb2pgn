@@ -19,8 +19,8 @@
 
 ## In Progress 🔄
 
-### CGO Implementation
-    Implement CGO bindings to expose core functionality to Go.
-    Refactor build system to produce a single shared library (`libcb2pgn.so`).
-    Update JNI and CGO implementations to link against the shared library.
-    Split Docker configuration into separate Java and Go build environments.
+### CGO Support
+    Implement a C++ wrapper for the CGO bindings to expose core functionality to Go.
+    The interface exposed to Go should be the same as the JNI interface.
+    Update build.sh so it builds both the JNI and CGO wrappers.
+    The CGO wrapper should have it's own folder and CMakeLists.txt and depends on `cb2pgnlib`.
