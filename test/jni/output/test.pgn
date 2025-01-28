@@ -1,0 +1,114 @@
+[Event "Moscow tt"]
+[Site "?"]
+[Date "1968.??.??"]
+[Round "?"]
+[White "Despotovic, Momcilo"]
+[Black "Dvoretsky, Mark"]
+[Result "0-1"]
+[SetUp "1"]
+[FEN "8/8/1p3k1p/1p3pp1/1P3P2/P2K2P1/7P/8 b - - 0 42"]
+[TimeMode "normal"]
+
+42...g4 42.Kc3 (42.Kc3 Ke6 43.Kd4 (43.Kb3 Kd5 44.a4 bxa4+ 45.Kxa4 Kc4 ) 44...Kd6
+44.Kc3 Kd5 45.Kd3 h5 ) (42.Ke3 Ke6 43.h3 (43.h4 Kd5 44.Kd3 h5 ) (43.Kf2 Kd5
+44.h3 h5 ) 44...gxh3 (44...h5 44.h4 (44.hxg4 ) 45...Kd5 45.Kd3 ) 44.Kf2 Kd5
+45.Kg1 Kc4 46.Kh2 h5 (47...Kb3 47.g4 ) 47.Kxh3 Kb3 48.Kh4 Kxa3 49.Kxh5 (49.Kg5 )
+50...Kxb4 50.g4 fxg4 51.Kxg4 Kc3 (52...Kc5 52.Kf3 (52.f5 b4 53.f6 Kd6 54.Kg5 b3
+55.Kh6 Ke6 56.Kg7 b2 57.f7 b1=Q 58.f8=Q )) 52.f5 b4 53.f6 b3 54.f7 b2 55.f8=Q
+b1=Q 56.Qf6+ ) 0-1
+
+
+[Event "Parsippany ch-USA"]
+[Site "?"]
+[Date "1996.??.??"]
+[Round "?"]
+[White "Yermolinsky, Alex"]
+[Black "Ivanov, Igor"]
+[Result "1/2-1/2"]
+[SetUp "1"]
+[FEN "5k2/7p/p1p3p1/P1P1Pp2/3p1PP1/7P/5K2/8 w - - 0 40"]
+[TimeMode "normal"]
+
+40.g5 Ke7 41.Ke2 Ke6 42.Kd3 Kd5 43.e6 Kxe6 44.Kxd4 Kd7 45.Ke5 Ke7 46.h4 1/2-1/2
+
+
+[Event "Pjarnu"]
+[Site "?"]
+[Date "1947.??.??"]
+[Round "?"]
+[White "Randviir, Juri"]
+[Black "Keres, Paul"]
+[Result "0-1"]
+[SetUp "1"]
+[FEN "8/7p/p4p2/k1pP1Pp1/6P1/P2K4/8/8 b - - 0 46"]
+[TimeMode "normal"]
+
+46...Kb5 46.a4+ (46.Kc3 c4 47.Kd4 ) 47...Kb6 47.Kc4 a5 48.Kc3 (48.d6 Kc6 49.d7
+Kxd7 50.Kxc5 Ke7 51.Kb5 h5 52.gxh5 g4 ) 49...Kc7 49.Kd3 Kd6 50.Kc4 h6 0-1
+
+
+[Event "?"]
+[Site "?"]
+[Date "1940.??.??"]
+[Round "?"]
+[White "Moravec, Josef"]
+[Black "?"]
+[Result "1-0"]
+[SetUp "1"]
+[FEN "8/1p6/8/8/8/8/1P6/K6k w - - 0 1"]
+[TimeMode "normal"]
+
+1.Kb1 (1.Ka2 Kg2 2.Kb3 Kf3 3.Kc4 Ke4 4.b4 Ke5 5.Kc5 Ke6 6.Kb6 (6.b5 Kd7 7.Kb6
+Kc8 ) 7...Kd5 7.Kxb7 Kc4 ) 2...Kg2 2.Kc2 Kf3 3.Kd3 Kf4 4.Kd4 Kf5 5.Kd5 Kf6 6.Kd6
+Kf7 (7...Kf5 7.b4 Ke4 8.b5 Kd4 9.b6 ) 7.b4 Ke8 8.Kc7 b5 9.Kc6 1-0
+
+
+[Event "Groningen"]
+[Site "?"]
+[Date "1990.??.??"]
+[Round "?"]
+[White "Rogers, Ian"]
+[Black "Shirov, Alexey"]
+[Result "1-0"]
+[SetUp "1"]
+[FEN "8/5p2/8/7R/4Kp2/5Pk1/7p/8 b - - 0 52"]
+[TimeMode "normal"]
+
+52...Kg2 (52...f5+ 52.Kxf5 (52.Kd3 Kg2 ) 53...Kxf3 53.Rxh2 Kg3 ) (52...f6 52.Rh8
+f5+ (53...Kg2 53.Kxf4 h1=Q 54.Rxh1 Kxh1 55.Kg3 Kg1 56.f4 Kf1 57.f5 Ke2 ))
+52.Kxf4 h1=Q 53.Rxh1 Kxh1 54.Kg3 (54.Kg3 Kg1 55.f4 Kf1 56.f5 (56.Kf3 f5 )
+57...Ke2 57.Kf4 Kd3 58.Ke5 Ke3 59.f6 ) 1-0
+
+
+[Event "?"]
+[Site "?"]
+[Date "1931.??.??"]
+[Round "?"]
+[White "Grigoriev, Nikolay"]
+[Black "?"]
+[Result "1/2-1/2"]
+[SetUp "1"]
+[FEN "8/1p6/1P6/8/7K/8/8/1k6 w - - 0 1"]
+[TimeMode "normal"]
+
+1.Kg3 (1.Kg4 Kc2 2.Kf4 Kd3 3.Ke5 Kc4 4.Kd6 Kb5 5.Kc7 Ka6 ) (1.Kg5 Kc2 2.Kf6 Kd3
+3.Ke5 Kc4 4.Kd6 Kb5 5.Kc7 Ka6 ) 2...Kc2 2.Kf2 Kd3 3.Ke1 Kc4 4.Kd2 Kb5 5.Kc3 Kxb6
+6.Kb4 1/2-1/2
+
+
+[Event "?"]
+[Site "?"]
+[Date "1961.??.??"]
+[Round "?"]
+[White "Gerbstman, Alexandr"]
+[Black "?"]
+[Result "1/2-1/2"]
+[SetUp "1"]
+[FEN "2K5/8/kP4P1/8/8/7p/3r3P/8 w - - 0 1"]
+[TimeMode "normal"]
+
+1.g7 (1.b7 Rc2+ ) 2...Rc2+ (2...Rg2 2.b7 Rxg7 3.b8=Q Rg8+ 4.Kc7 Rxb8 5.Kxb8 Kb6
+6.Ka8 ) 2.Kb8 Rg2 3.b7 Rxg7 4.Ka8 Rg8+ (5...Rxb7 ) 5.b8=Q Rxb8+ 6.Kxb8 Kb6 7.Ka8
+(7.Kc8 Kc6 8.Kb8 Kd5 ) 8...Kc6 8.Ka7 Kd5 9.Kb6 Ke4 10.Kc5 Kf3 11.Kd4 Kg2 12.Ke3
+Kxh2 13.Kf2 1/2-1/2
+

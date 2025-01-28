@@ -10,9 +10,9 @@ CB_EXTENSIONS="cbh cba cbj cit cbc cbg cbp cbt cbs cbe cbm cbl cbtt cbv ini"
 # Check for all required ChessBase files
 echo "=== Checking ChessBase files ==="
 for ext in $CB_EXTENSIONS; do
-    if [ -f "test.$ext" ]; then
+    if [ -f "../data/test.$ext" ]; then
         echo "Found test.$ext:"
-        ls -la "test.$ext"
+        ls -la "../data/test.$ext"
     else
         echo "Warning: test.$ext not found"
     fi
@@ -27,9 +27,9 @@ docker compose run --rm test bash -c '
     # Create directories and copy all ChessBase files
     mkdir -p /test/output
     for ext in cbh cba cbj cit cbc cbg cbp cbt cbs cbe cbm cbl cbtt cbv ini; do
-        if [ -f "test.$ext" ]; then
+        if [ -f "/data/test.$ext" ]; then
             echo "Copying test.$ext to /test/"
-            cp -v "test.$ext" "/test/"
+            cp -v "/data/test.$ext" "/test/"
             chmod 644 "/test/test.$ext"
         fi
     done
